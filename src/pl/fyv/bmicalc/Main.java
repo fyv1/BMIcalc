@@ -32,10 +32,12 @@ public class Main extends Application {
 
         CalcController controller = loader.getController();
         controller.setMain(this);
+        controller.setStage(primaryStage);
 
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.show();
+
 
     }
 }
