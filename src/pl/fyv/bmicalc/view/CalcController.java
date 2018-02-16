@@ -1,14 +1,13 @@
 package pl.fyv.bmicalc.view;
 
-import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleFloatProperty;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import pl.fyv.bmicalc.Main;
 import pl.fyv.bmicalc.model.BmiCalc;
 
@@ -24,6 +23,12 @@ public class CalcController {
     private Button subjectButton;
 
     private Main main;
+
+    public void setStage(Stage stage) {
+        this.stage = stage;
+    }
+
+    private Stage stage;
     private BmiCalc bmiCalc;
 
     public CalcController() { }
@@ -36,9 +41,11 @@ public class CalcController {
     @FXML
     private void showBmiResult(ActionEvent actionEvent) {
 
+        checkFields();
+
         double mass = Double.parseDouble(massInput.getText());
         double height = Double.parseDouble(heightInput.getText());
-        height /= 100;
+        height /= 100; //from cm to m
 
         bmiCalc = new BmiCalc(new SimpleDoubleProperty(height), new SimpleDoubleProperty(mass));
 
@@ -47,6 +54,20 @@ public class CalcController {
 
     public void setMain(Main main) {
         this.main = main;
+    }
+
+    private void checkFields() {
+        String errmessage = "";
+        if(massInput.getText()==null) errmessage += "Puste pole \"masa\"\n";
+        if(heightInput.getText()==null) errmessage += "Puste pole \"wysokość\"\n";
+
+        if(errmessage.length() != 0) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Wystąpił błąd");
+            alert.setHeaderText("Błąd:");
+            alert.setContentText(errmessage);
+            alert.showAndWait();
+        }
     }
 
 }

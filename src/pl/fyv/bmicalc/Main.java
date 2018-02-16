@@ -33,7 +33,6 @@ public class Main extends Application {
         CalcController controller = loader.getController();
         controller.setMain(this);
 
-
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.show();
