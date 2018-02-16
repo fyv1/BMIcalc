@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="197.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.fyv.bmicalc.view.CalcController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="197.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.fyv.bmicalc.view.CalcController">
    <children>
       <Label layoutX="31.0" layoutY="26.0" text="Podaj wagę (kg)" />
       <TextField fx:id="massInput" layoutX="31.0" layoutY="43.0" prefHeight="25.0" prefWidth="94.0" />
@@ -18,7 +18,7 @@
          </font>
       </Button>
       <Label layoutX="165.0" layoutY="26.0" prefHeight="17.0" prefWidth="221.0" text="Twoje BMI:" />
-      <Label fx:id="bmiResult" layoutX="165.0" layoutY="45.0" prefHeight="94.0" prefWidth="176.0" text="Label" textAlignment="CENTER">
+      <Label fx:id="bmiResult" layoutX="165.0" layoutY="45.0" prefHeight="94.0" prefWidth="245.0" textAlignment="CENTER">
          <font>
             <Font size="24.0" />
          </font>
