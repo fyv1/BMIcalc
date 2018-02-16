@@ -29,7 +29,6 @@ public class CalcController {
     }
 
     private Stage stage;
-    private BmiCalc bmiCalc;
 
     public CalcController() { }
 
@@ -41,34 +40,37 @@ public class CalcController {
     @FXML
     private void showBmiResult(ActionEvent actionEvent) {
 
-        checkFields();
+        if(!ifFieldsNotNull()) displayError();
 
-        double mass = Double.parseDouble(massInput.getText());
-        double height = Double.parseDouble(heightInput.getText());
-        height /= 100; //from cm to m
+        else {
+            double mass = Double.parseDouble(massInput.getText());
+            double height = Double.parseDouble(heightInput.getText());
+            height /= 100; //from cm to m
 
-        bmiCalc = new BmiCalc(new SimpleDoubleProperty(height), new SimpleDoubleProperty(mass));
+            BmiCalc bmiCalc = new BmiCalc(new SimpleDoubleProperty(height), new SimpleDoubleProperty(mass));
 
-        bmiResult.setText(bmiCalc.interprete());
+            bmiResult.setText(bmiCalc.interprete());
+        }
     }
 
     public void setMain(Main main) {
         this.main = main;
     }
 
-    private void checkFields() {
-        String errmessage = "";
-        if(massInput.getText()==null) errmessage += "Puste pole \"masa\"\n";
-        if(heightInput.getText()==null) errmessage += "Puste pole \"wysokość\"\n";
+    private boolean ifFieldsNotNull() {
 
-        if(errmessage.length() != 0) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.initOwner(stage);
-            alert.setTitle("Wystąpił błąd");
-            alert.setHeaderText("Błąd:");
-            alert.setContentText(errmessage);
-            alert.showAndWait();
-        }
+        if(massInput.getText() == null || massInput.getText().length() == 0) return false;
+        else if(heightInput.getText() == null || heightInput.getText().length() == 0) return false;
+        else return true;
+    }
+
+    private void displayError() {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.initOwner(stage);
+        alert.setTitle("Wystąpił błąd");
+        alert.setHeaderText("Błąd:");
+        alert.setContentText("Uzupełnij puste pola!");
+        alert.showAndWait();
     }
 
 }
