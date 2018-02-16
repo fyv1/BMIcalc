@@ -1,10 +1,13 @@
 package pl.fyv.bmicalc;
 
 import javafx.application.Application;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import pl.fyv.bmicalc.model.BmiCalc;
+import pl.fyv.bmicalc.view.CalcController;
 
 import java.io.IOException;
 
@@ -26,6 +29,10 @@ public class Main extends Application {
         primaryStage.setTitle("Kalkulator BMI");
 
         AnchorPane root = loader.load();
+
+        CalcController controller = loader.getController();
+        controller.setMain(this);
+
 
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
