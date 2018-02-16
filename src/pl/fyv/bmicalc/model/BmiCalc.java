@@ -43,7 +43,7 @@ public class BmiCalc {
     }
 
 
-    DoubleBinding db = new DoubleBinding() {
+    private DoubleBinding db = new DoubleBinding() {
         @Override
         protected double computeValue() {
             return getMass()/((getHeight())*getHeight()); // wzór na bmi

@@ -63,6 +63,7 @@ public class CalcController {
 
         if(errmessage.length() != 0) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.initOwner(stage);
             alert.setTitle("Wystąpił błąd");
             alert.setHeaderText("Błąd:");
             alert.setContentText(errmessage);
