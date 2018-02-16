@@ -38,6 +38,7 @@ public class CalcController {
 
         double mass = Double.parseDouble(massInput.getText());
         double height = Double.parseDouble(heightInput.getText());
+        height /= 100;
 
         bmiCalc = new BmiCalc(new SimpleDoubleProperty(height), new SimpleDoubleProperty(mass));
 
@@ -47,11 +48,5 @@ public class CalcController {
     public void setMain(Main main) {
         this.main = main;
     }
-/*
-    @FXML
-    public void showBmiResult(BmiCalc bmiCalc) {
-        if(bmiCalc!=null) {
-            bmiResult.setText(bmiCalc.interprete());
-        }
-    }*/
+
 }
