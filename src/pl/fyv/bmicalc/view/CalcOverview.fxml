@@ -1,29 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="197.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.fyv.bmicalc.view.CalcController">
    <children>
       <Label layoutX="31.0" layoutY="26.0" text="Podaj wagę (kg)" />
-      <TextField layoutX="31.0" layoutY="43.0" prefHeight="25.0" prefWidth="94.0" />
+      <TextField fx:id="massInput" layoutX="31.0" layoutY="43.0" prefHeight="25.0" prefWidth="94.0" />
       <Label layoutX="31.0" layoutY="83.0" text="Podaj wzrost (cm)" />
-      <TextField layoutX="31.0" layoutY="100.0" prefHeight="25.0" prefWidth="94.0" AnchorPane.bottomAnchor="75.0" AnchorPane.topAnchor="100.0" />
-      <Button layoutX="31.0" layoutY="145.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="94.0" text="Oblicz BMI" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS">
+      <TextField fx:id="heightInput" layoutX="31.0" layoutY="100.0" prefHeight="25.0" prefWidth="94.0" AnchorPane.bottomAnchor="75.0" AnchorPane.topAnchor="100.0" />
+      <Button fx:id="subjectButton" layoutX="31.0" layoutY="145.0" mnemonicParsing="false" onAction="#showBmiResult" prefHeight="25.0" prefWidth="94.0" text="Oblicz BMI" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS">
          <font>
             <Font name="Arial" size="12.0" />
          </font>
       </Button>
-      <Label layoutX="250.0" layoutY="26.0" prefHeight="17.0" prefWidth="221.0" text="Twoje BMI:" />
-      <Label layoutX="250.0" layoutY="75.0" prefHeight="94.0" prefWidth="176.0" text="Label" textAlignment="CENTER">
+      <Label layoutX="165.0" layoutY="26.0" prefHeight="17.0" prefWidth="221.0" text="Twoje BMI:" />
+      <Label fx:id="bmiResult" layoutX="165.0" layoutY="45.0" prefHeight="94.0" prefWidth="176.0" text="Label" textAlignment="CENTER">
          <font>
-            <Font size="48.0" />
+            <Font size="24.0" />
          </font>
       </Label>
    </children>
