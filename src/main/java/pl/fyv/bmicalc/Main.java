@@ -21,10 +21,11 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
 
-        String viewUrl = "view/CalcOverview.fxml";
+        String viewUrl = "/CalcOverview.fxml";
 
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(Main.class.getResource(viewUrl));
+        //loader.setLocation(Main.class.getResource(viewUrl));
+        loader.setLocation(getClass().getResource(viewUrl));
 
         primaryStage.setTitle("Kalkulator BMI");
 
